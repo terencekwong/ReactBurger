@@ -1,3 +1,6 @@
+variables: 
+  projectLocation: './react-burger'
+
 trigger:
 - master
 
@@ -11,8 +14,8 @@ steps:
   displayName: 'Install Node.js'
 
 - script: |
-    npm install
-    npm run build
+    npm install $(projectLocation)
+    npm run build $(projectLocation)
   displayName: 'npm install and build'
 
 - task: PublishBuildArtifacts@1
